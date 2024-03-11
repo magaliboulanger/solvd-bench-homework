@@ -9,7 +9,8 @@ public class RegisterUserTest extends BaseTest{
     //Test case 1 TODO: connect with zebrunner
     @Test
     public void testRegisterUser() {
-        HomePage home = openHomePage();
+        HomePage home = new HomePage(getDriver());
+        home.openHomePage();
         Assert.assertTrue(home.isPageOpened(), "HomePage is not opened.");
         RegisterPage registerPage = home.getHeaderComponent().clickSignUpLink();
         Assert.assertTrue(registerPage.isPageOpened(), "Register Page is not opened.");
@@ -29,7 +30,8 @@ public class RegisterUserTest extends BaseTest{
     //Test case 3 (with data provider - use the same with wrong data)
     @Test
     public void testLogin() {
-        HomePage home = openHomePage();
+        HomePage home = new HomePage(getDriver());
+        home.openHomePage();
         Assert.assertTrue(home.isPageOpened(), "HomePage is not opened.");
         RegisterPage loginPage = home.getHeaderComponent().clickSignUpLink();
         Assert.assertTrue(loginPage.isPageOpened(), "Login Page is not opened.");
@@ -42,7 +44,8 @@ public class RegisterUserTest extends BaseTest{
     
     @Test
     public void testLogout() {
-        HomePage home = openHomePage();
+        HomePage home = new HomePage(getDriver());
+        home.openHomePage();
         Assert.assertTrue(home.isPageOpened(), "HomePage is not opened.");
         RegisterPage loginPage = home.getHeaderComponent().clickSignUpLink();
         Assert.assertTrue(loginPage.isPageOpened(), "Login Page is not opened.");

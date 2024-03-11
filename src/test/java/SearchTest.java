@@ -11,7 +11,8 @@ public class SearchTest extends BaseTest {
     //TestCase 9
     @Test
     public void testSearch() {
-        HomePage home = openHomePage();
+        HomePage home = new HomePage(getDriver());
+        home.openHomePage();
         Assert.assertTrue(home.isPageOpened(), "HomePage is not opened.");
         home.getHeaderComponent().clickProductsLink();
         

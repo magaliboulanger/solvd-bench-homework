@@ -13,6 +13,13 @@
 		<zebrunner-agent.version>1.9.3</zebrunner-agent.version>
 	</properties>
 	<dependencies>
+		<!-- https://mvnrepository.com/artifact/com.qaprosoft/carina-core -->
+		<dependency>
+			<groupId>com.qaprosoft</groupId>
+			<artifactId>carina-core</artifactId>
+			<version>8.0.12</version>
+		</dependency>
+
 		<dependency>
 			<groupId>com.zebrunner</groupId>
 			<artifactId>carina-core</artifactId>
@@ -38,13 +45,15 @@
 			<artifactId>selenium-java</artifactId>
 			<version>4.4.0</version>
 		</dependency>
-		<!-- TestNG -->
-        <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>7.3.0</version>
-            <scope>test</scope>
-        </dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.testng/testng -->
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>7.8.0</version>
+			<scope>test</scope>
+		</dependency>
+
 		<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
 		<dependency>
 		    <groupId>org.slf4j</groupId>
@@ -52,11 +61,21 @@
 		    <version>2.0.9</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/log4j/log4j -->
+
+		<!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
 		<dependency>
-		    <groupId>log4j</groupId>
-		    <artifactId>log4j</artifactId>
-		    <version>1.2.17</version>
+			<groupId>io.github.bonigarcia</groupId>
+			<artifactId>webdrivermanager</artifactId>
+			<version>5.7.0</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.6</version>
+		</dependency>
+
 	</dependencies>
+
 
 </project>
