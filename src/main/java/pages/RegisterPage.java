@@ -12,10 +12,10 @@ import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 public class RegisterPage extends BasePage{
 
     //input[@name='name']
-    @FindBy(xpath = "//input[@name='name']")
+    @FindBy(xpath = "//input[@data-qa='signup-name']")
     private ExtendedWebElement signupName;
     
-    @FindBy(xpath = "//input[@name='email']")
+    @FindBy(xpath = "//input[@data-qa='signup-email']")
     private ExtendedWebElement signupEmail;
     
     @FindBy(xpath = "//button[@data-qa='signup-button']")
@@ -96,7 +96,7 @@ public class RegisterPage extends BasePage{
     public AccountInfoPage fillRegisterForm() {
       //TODO: data provider
         signupName.type("Magali");
-        signupEmail.type("mboulanger@solvd.com");
+        signupEmail.type("mboulanger4@solvd.com");
         signupButton.click();
         return new AccountInfoPage(driver);
     }
