@@ -22,13 +22,13 @@ public class AccountInfoPage extends BasePage{
     private ExtendedWebElement passwordInput;
     
     @FindBy(css = "#days")
-    private Select daySelect;
+    private ExtendedWebElement daySelect;
     
     @FindBy(css = "#months")
-    private Select monthSelect;
+    private ExtendedWebElement monthSelect;
     
     @FindBy(css = "#years")
-    private Select yearSelect;
+    private ExtendedWebElement yearSelect;
     
     @FindBy(css = "#first_name")
     private ExtendedWebElement firstNameAddressInput;
@@ -40,7 +40,7 @@ public class AccountInfoPage extends BasePage{
     private ExtendedWebElement addressInput;
     
     @FindBy(css = "#country")
-    private Select countrySelect;
+    private ExtendedWebElement countrySelect;
     
     @FindBy(css = "#state")
     private ExtendedWebElement stateInput;
@@ -81,13 +81,13 @@ public class AccountInfoPage extends BasePage{
         //TO DO: Put data on config file
         genderCheckboxList.get(0).click();
         passwordInput.type("p@ssw0rd");
-        daySelect.selectByValue("1");
-        monthSelect.selectByValue("May");
-        yearSelect.selectByValue("1980");
+        daySelect.select("1");
+        monthSelect.select("May");
+        yearSelect.select("1980");
         firstNameAddressInput.type("Magali");
         lastNameAddressInput.type("Boulanger");
         addressInput.type("Street 53 1234, Asdfg, Qwerty");
-        countrySelect.selectByValue("Canada");
+        countrySelect.select("Canada");
         stateInput.type("Asdfg");
         cityInput.type("qwerty");
         zipcodeInput.type("123456");
