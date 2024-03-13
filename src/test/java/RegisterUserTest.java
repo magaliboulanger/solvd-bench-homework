@@ -17,9 +17,9 @@ public class RegisterUserTest extends BaseTest{
         AccountInfoPage infoPage= registerPage.fillRegisterForm();
         Assert.assertTrue(infoPage.isAccountInformationFormPresent(), "Account information form is not opened.");
         infoPage.fillAccountInformationForm();
+        home = infoPage.clickContinueButton();
         Assert.assertTrue(home.getHeaderComponent().isNameDisplayed("Magali"), "The account was not created.");
         //TODO: data provider
-        home = infoPage.clickContinueButton();
     
         home.getHeaderComponent().clickDeleteAccountLink();
         Assert.assertTrue(registerPage.isAccountDeletedTitlePresent(), "The account was not deleted.");

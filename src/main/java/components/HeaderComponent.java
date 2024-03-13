@@ -30,7 +30,7 @@ public class HeaderComponent extends AbstractUIObject {
     @FindBy(xpath=" //a[text()=' Logout']")
     private ExtendedWebElement logoutButton;
     
-    @FindBy(xpath = "//a[contains(text(),'%s')]")
+    @FindBy(xpath = "//b[contains(text(),'%s')]")
     private ExtendedWebElement loggedInMessage;
     
     public ProductsListPage clickProductsLink() {

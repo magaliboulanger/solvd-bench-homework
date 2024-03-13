@@ -60,7 +60,7 @@ public class AccountInfoPage extends BasePage{
     @FindBy(xpath = "//*[@data-qa='account-created']")
     private ExtendedWebElement accountCreatedTitle;
 
-    @FindBy(xpath = "//button[@data-qa='continue-button']")
+    @FindBy(xpath = "//a[@data-qa='continue-button']")
     private ExtendedWebElement continueButton;
     
     @FindBy(xpath = "//*[@data-qa='account-deleted']")
