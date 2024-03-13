@@ -2,6 +2,7 @@ package pages;
 
 import java.util.List;
 
+import com.zebrunner.carina.utils.R;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -80,18 +81,18 @@ public class AccountInfoPage extends BasePage{
     public void fillAccountInformationForm() {
         //TO DO: Put data on config file
         genderCheckboxList.get(0).click();
-        passwordInput.type("p@ssw0rd");
-        daySelect.select("1");
-        monthSelect.select("May");
-        yearSelect.select("1980");
-        firstNameAddressInput.type("Magali");
-        lastNameAddressInput.type("Boulanger");
-        addressInput.type("Street 53 1234, Asdfg, Qwerty");
-        countrySelect.select("Canada");
-        stateInput.type("Asdfg");
-        cityInput.type("qwerty");
-        zipcodeInput.type("123456");
-        mobileNumberInput.type("1234567890");
+        passwordInput.type(R.TESTDATA.get("user.newPassword"));
+        daySelect.select(R.TESTDATA.get("user.dayOfBirth"));
+        monthSelect.select(R.TESTDATA.get("user.monthOfBirth"));
+        yearSelect.select(R.TESTDATA.get("user.yearOfBirth"));
+        firstNameAddressInput.type(R.TESTDATA.get("user.name"));
+        lastNameAddressInput.type(R.TESTDATA.get("user.lastName"));
+        addressInput.type(R.TESTDATA.get("user.address"));
+        countrySelect.select(R.TESTDATA.get("user.country"));
+        stateInput.type(R.TESTDATA.get("user.state"));
+        cityInput.type(R.TESTDATA.get("user.city"));
+        zipcodeInput.type(R.TESTDATA.get("user.zipcode"));
+        mobileNumberInput.type(R.TESTDATA.get("user.mobileNumber"));
         createAccountButton.click();
     }
     

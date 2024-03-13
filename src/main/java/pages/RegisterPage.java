@@ -2,6 +2,7 @@ package pages;
 
 import java.util.List;
 
+import com.zebrunner.carina.utils.R;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -81,9 +82,12 @@ public class RegisterPage extends BasePage{
     @FindBy(xpath = "//input[@data-qa='login-password']")
     private ExtendedWebElement passwordLoginInput;
     
-    @FindBy(xpath = "//input[@data-qa='login-button']")
+    @FindBy(xpath = "//button[@data-qa='login-button']")
     private ExtendedWebElement loginButton;
-    
+
+    @FindBy(xpath = "//p[text()='Your email or password is incorrect!']")
+    private ExtendedWebElement errorMessageLogin;
+
     public RegisterPage(WebDriver driver) {
         super(driver);
         // TODO Auto-generated constructor stub
@@ -94,9 +98,8 @@ public class RegisterPage extends BasePage{
     }
     
     public AccountInfoPage fillRegisterForm() {
-      //TODO: data provider
-        signupName.type("Magali");
-        signupEmail.type("mboulanger4@solvd.com");
+        signupName.type(R.TESTDATA.get("user.name"));
+        signupEmail.type(R.TESTDATA.get("user.newEmail"));
         signupButton.click();
         return new AccountInfoPage(driver);
     }
@@ -106,12 +109,15 @@ public class RegisterPage extends BasePage{
         return accountDeletedTitle.isElementPresent();
     }
 
-    public HomePage fillLoginForm() {
-        //TODO: data provider
-        emailLoginInput.type("testmagali@gmail.com");
-        passwordLoginInput.type("1234");
+    public HomePage fillLoginForm(String email, String password) {
+        emailLoginInput.type(email);
+        passwordLoginInput.type(password);
         loginButton.click();
         return new HomePage(driver);
         
+    }
+
+    public boolean isErrorPresent() {
+        return errorMessageLogin.isElementPresent();
     }
 }
