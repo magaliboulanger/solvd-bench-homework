@@ -6,15 +6,16 @@ import org.openqa.selenium.WebDriver;
 @Slf4j
 public class HomePage extends BasePage{
 
+    private String URL="";
     public HomePage(WebDriver driver) {
         super(driver);
-        final String url = "https://www.automationexercise.com";
-        setPageURL(url);
+        URL = "https://www.automationexercise.com";
+        //setPageURL(url);
     }
 
     public HomePage openHomePage() {
-        this.open();
-        return new HomePage(driver);
+        getDriver().get(URL);
+        return new HomePage(getDriver());
     }
     
     public boolean isPageOpened() {
