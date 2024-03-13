@@ -23,7 +23,7 @@ public class RegisterUserTest extends BaseTest{
         Assert.assertTrue(infoPage.isAccountInformationFormPresent(), "Account information form is not opened.");
         infoPage.fillAccountInformationForm();
         home = infoPage.clickContinueButton();
-        Assert.assertTrue(home.getHeaderComponent().isNameDisplayed("Magali"), "The account was not created.");
+        Assert.assertTrue(home.getHeaderComponent().isNameDisplayed(R.TESTDATA.get("user.name")), "The account was not created.");
 
     
         home.getHeaderComponent().clickDeleteAccountLink();
