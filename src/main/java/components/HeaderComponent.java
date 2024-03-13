@@ -1,19 +1,20 @@
 package components;
 
+import com.zebrunner.carina.webdriver.gui.AbstractUIObject;
+import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+
 import org.openqa.selenium.support.FindBy;
 
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
-import com.zebrunner.carina.webdriver.gui.AbstractPage;
 
 import pages.ProductsListPage;
 import pages.RegisterPage;
 
-public class HeaderComponent extends AbstractPage{
+public class HeaderComponent extends AbstractUIObject {
 
-    public HeaderComponent(WebDriver driver) {
-        super(driver);
+    public HeaderComponent(WebDriver driver, SearchContext searchContext) {
+        super(driver, searchContext);
         // TODO Auto-generated constructor stub
     }
 
