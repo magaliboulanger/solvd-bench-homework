@@ -3,9 +3,7 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import pages.AccountInfoPage;
-import pages.HomePage;
-import pages.RegisterPage;
+import pages.*;
 
 public class RegisterUserTest extends BaseTest{
     private final String validEmail = R.TESTDATA.get("user.email");
@@ -17,9 +15,9 @@ public class RegisterUserTest extends BaseTest{
         HomePage home = new HomePage(getDriver());
         home.openHomePage();
         Assert.assertTrue(home.isPageOpened(), "HomePage is not opened.");
-        RegisterPage registerPage = home.getHeaderComponent().clickSignUpLink();
-        Assert.assertTrue(registerPage.isPageOpened(), "Register Page is not opened.");
-        AccountInfoPage infoPage= registerPage.fillRegisterForm();
+        SignUpPage signUpPage = home.getHeaderComponent().clickSignUpLink();
+        Assert.assertTrue(signUpPage.isPageOpened(), "Register Page is not opened.");
+        AccountInfoPage infoPage= signUpPage.fillRegisterForm();
         Assert.assertTrue(infoPage.isAccountInformationFormPresent(), "Account information form is not opened.");
         infoPage.fillAccountInformationForm();
         home = infoPage.clickContinueButton();
@@ -27,7 +25,7 @@ public class RegisterUserTest extends BaseTest{
 
     
         home.getHeaderComponent().clickDeleteAccountLink();
-        Assert.assertTrue(registerPage.isAccountDeletedTitlePresent(), "The account was not deleted.");
+        Assert.assertTrue(signUpPage.isAccountDeletedTitlePresent(), "The account was not deleted.");
     }
     
     
@@ -44,7 +42,7 @@ public class RegisterUserTest extends BaseTest{
         HomePage home = new HomePage(getDriver());
         home.openHomePage();
         Assert.assertTrue(home.isPageOpened(), "HomePage is not opened.");
-        RegisterPage loginPage = home.getHeaderComponent().clickSignUpLink();
+        LoginPage loginPage = home.getHeaderComponent().clickSignUpLink();
         Assert.assertTrue(loginPage.isPageOpened(), "Login Page is not opened.");
         home = loginPage.fillLoginForm(email, password);
         if(valid){

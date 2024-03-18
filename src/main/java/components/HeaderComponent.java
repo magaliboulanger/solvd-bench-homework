@@ -9,7 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 
 import pages.ProductsListPage;
-import pages.RegisterPage;
+import pages.SignUpPage;
 
 public class HeaderComponent extends AbstractUIObject {
 
@@ -38,9 +38,9 @@ public class HeaderComponent extends AbstractUIObject {
         return new ProductsListPage(driver);
     }
     
-    public RegisterPage clickSignUpLink() {
+    public SignUpPage clickSignUpLink() {
         signUpLink.click();
-        return new RegisterPage(driver);
+        return new SignUpPage(driver);
     }
     
     public boolean isComponentPresent() {
