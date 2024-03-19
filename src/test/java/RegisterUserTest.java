@@ -19,7 +19,7 @@ public class RegisterUserTest extends BaseTest{
         Assert.assertTrue(home.isPageOpened(), "HomePage is not opened.");
         RegisterPage registerPage = home.getHeaderComponent().clickSignUpLink();
         Assert.assertTrue(registerPage.isPageOpened(), "Register Page is not opened.");
-        AccountInfoPage infoPage= registerPage.fillRegisterForm();
+        AccountInfoPage infoPage= registerPage.getSignUpForm().fillSignUpForm();
         Assert.assertTrue(infoPage.isAccountInformationFormPresent(), "Account information form is not opened.");
         infoPage.fillAccountInformationForm();
         home = infoPage.clickContinueButton();
@@ -46,11 +46,11 @@ public class RegisterUserTest extends BaseTest{
         Assert.assertTrue(home.isPageOpened(), "HomePage is not opened.");
         RegisterPage loginPage = home.getHeaderComponent().clickSignUpLink();
         Assert.assertTrue(loginPage.isPageOpened(), "Login Page is not opened.");
-        home = loginPage.fillLoginForm(email, password);
+        home = loginPage.getLoginForm().fillLoginForm(email, password);
         if(valid){
             Assert.assertTrue(home.getHeaderComponent().isNameDisplayed("Test Magali"), "The account was not logged.");
         } else {
-            Assert.assertTrue(loginPage.isErrorPresent(), "The account was logged with invalid credentials.");
+            Assert.assertTrue(loginPage.getLoginForm().isErrorPresent(), "The account was logged with invalid credentials.");
 
         }
     }
@@ -62,7 +62,7 @@ public class RegisterUserTest extends BaseTest{
         Assert.assertTrue(home.isPageOpened(), "HomePage is not opened.");
         RegisterPage loginPage = home.getHeaderComponent().clickSignUpLink();
         Assert.assertTrue(loginPage.isPageOpened(), "Login Page is not opened.");
-        home = loginPage.fillLoginForm(validEmail, validPassword);
+        home = loginPage.getLoginForm().fillLoginForm(validEmail, validPassword);
         Assert.assertTrue(home.getHeaderComponent().isNameDisplayed("Test Magali"), "The account was not created.");
         home.getHeaderComponent().clickLogoutButon();
         Assert.assertFalse(home.getHeaderComponent().isNameDisplayed("Test Magali"), "User has not logged out.");
