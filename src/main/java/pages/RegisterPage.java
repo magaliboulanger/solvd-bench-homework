@@ -34,11 +34,6 @@ public class RegisterPage extends BasePage{
         return signUpForm;
     }
     
-
-    
-
- 
-    
     public boolean isAccountDeletedTitlePresent() {
         return accountDeletedTitle.isElementPresent();
     }

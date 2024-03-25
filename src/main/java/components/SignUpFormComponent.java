@@ -18,6 +18,10 @@ public class SignUpFormComponent extends AbstractUIObject {
 
     @FindBy(xpath = "//button[@data-qa='signup-button']")
     private ExtendedWebElement signupButton;
+
+    @FindBy(xpath = "//p[text()='Email Address already exist!']")
+    private ExtendedWebElement existingEmailError;
+
     protected SignUpFormComponent(WebDriver driver, SearchContext searchContext) {
         super(driver, searchContext);
     }
@@ -25,10 +29,14 @@ public class SignUpFormComponent extends AbstractUIObject {
     public boolean isPageOpened() {
         return signupButton.isElementPresent();
     }
-    public AccountInfoPage fillSignUpForm() {
-        signupName.type(R.TESTDATA.get("user.name"));
-        signupEmail.type(R.TESTDATA.get("user.newEmail"));
+    public AccountInfoPage fillSignUpForm(String name, String email) {
+        signupName.type(name);
+        signupEmail.type(email);
         signupButton.click();
         return new AccountInfoPage(driver);
+    }
+
+    public boolean isEmailErrorPresent() {
+        return existingEmailError.isElementPresent();
     }
 }
