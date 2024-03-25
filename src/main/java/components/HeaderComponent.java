@@ -8,6 +8,7 @@ import org.openqa.selenium.support.FindBy;
 
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 
+import pages.ContactUsPage;
 import pages.ProductsListPage;
 import pages.RegisterPage;
 
@@ -26,6 +27,9 @@ public class HeaderComponent extends AbstractUIObject {
     
     @FindBy(xpath = "//a[text()=' Delete Account']")
     private ExtendedWebElement deleteAccountLink;
+
+    @FindBy(xpath = "//header[@id='header']//a[contains(text(), 'Contact us')]")
+    private ExtendedWebElement contactUsLink;
     
     @FindBy(xpath=" //a[text()=' Logout']")
     private ExtendedWebElement logoutButton;
@@ -41,6 +45,11 @@ public class HeaderComponent extends AbstractUIObject {
     public RegisterPage clickSignUpLink() {
         signUpLink.click();
         return new RegisterPage(driver);
+    }
+
+    public ContactUsPage clickContactUsLink() {
+        contactUsLink.click();
+        return new ContactUsPage(driver);
     }
     
     public boolean isComponentPresent() {
@@ -59,7 +68,7 @@ public class HeaderComponent extends AbstractUIObject {
         return loggedInMessage.format(name).isElementPresent();
     }
     
-    public void clickLogoutButon() {
+    public void clickLogoutButton() {
         logoutButton.click();
     }
 }

@@ -42,7 +42,7 @@ public class LoginTest extends BaseTest{
         Assert.assertTrue(loginPage.isPageOpened(), "Login Page is not opened.");
         home = loginPage.getLoginForm().fillLoginForm(validEmail, validPassword);
         Assert.assertTrue(home.getHeaderComponent().isNameDisplayed("Test Magali"), "The account was not created.");
-        home.getHeaderComponent().clickLogoutButon();
+        home.getHeaderComponent().clickLogoutButton();
         Assert.assertFalse(home.getHeaderComponent().isNameDisplayed("Test Magali"), "User has not logged out.");
 
     }
