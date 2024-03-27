@@ -1,9 +1,11 @@
 package components;
 
+import com.zebrunner.carina.utils.R;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import com.zebrunner.carina.webdriver.gui.AbstractUIObject;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class ContactUsForm extends AbstractUIObject {
@@ -23,8 +25,8 @@ public class ContactUsForm extends AbstractUIObject {
     @FindBy(xpath="#message")
     private ExtendedWebElement messageInput;
 
-    @FindBy(xpath="//input[@name='upload_file']")
-    private ExtendedWebElement uploadFileButton;
+    @FindBy(xpath="//input[@type='file']")
+    private WebElement uploadFileInput;
 
     @FindBy(xpath="//input[@data-qa='submit-button']")
     private ExtendedWebElement submitButton;
@@ -38,11 +40,11 @@ public class ContactUsForm extends AbstractUIObject {
     }
 
     public void fillContactForm(){
-        nameInput.type("magali");
-        emailInput.type("test@test.com");
-        subjectInput.type("test");
-        messageInput.type("this is a test");
-        uploadFileButton.click();
+        nameInput.type(R.TESTDATA.get("ContactForm.name"));
+        emailInput.type(R.TESTDATA.get("ContactForm.email"));
+        subjectInput.type(R.TESTDATA.get("ContactForm.subject"));
+        messageInput.type(R.TESTDATA.get("ContactForm.messag"));
+        uploadFileInput.sendKeys(R.TESTDATA.get("ContactForm.filePath"));
         submitButton.click();
     }
 }

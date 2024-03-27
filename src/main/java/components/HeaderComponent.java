@@ -11,6 +11,7 @@ import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import pages.ContactUsPage;
 import pages.ProductsListPage;
 import pages.RegisterPage;
+import pages.TestCasesPage;
 
 public class HeaderComponent extends AbstractUIObject {
 
@@ -30,7 +31,9 @@ public class HeaderComponent extends AbstractUIObject {
 
     @FindBy(xpath = "//header[@id='header']//a[contains(text(), 'Contact us')]")
     private ExtendedWebElement contactUsLink;
-    
+
+    @FindBy(xpath = "//header[@id='header']//a[contains(text(), 'Test Cases')]")
+    private ExtendedWebElement testCasesLink;
     @FindBy(xpath=" //a[text()=' Logout']")
     private ExtendedWebElement logoutButton;
     
@@ -50,6 +53,11 @@ public class HeaderComponent extends AbstractUIObject {
     public ContactUsPage clickContactUsLink() {
         contactUsLink.click();
         return new ContactUsPage(driver);
+    }
+
+    public TestCasesPage clickTestCasesLink() {
+        testCasesLink.click();
+        return new TestCasesPage(driver);
     }
     
     public boolean isComponentPresent() {
